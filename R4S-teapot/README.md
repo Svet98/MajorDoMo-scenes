@@ -26,4 +26,4 @@
 
 <br>
 
-![Alt-текст](https://github.com/Svet98/MajorDoMo-scenes/blob/main/R4S-teapot/001.png "Сцена управления чайником Redmond через шлюз ESP32 Ready4Sky")
+![Alt-текст](https://github.com/Svet98/MajorDoMo-scenes/blob/main/R4S-teapot/jpg/001.png "Сцена управления чайником Redmond через шлюз ESP32 Ready4Sky")
