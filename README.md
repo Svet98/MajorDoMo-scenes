@@ -1,5 +1,7 @@
 # MajorDoMo-scenes
 Сцены для управления разным оборудованием из МажорДомо
+<br>
+ ![https://www.youtube.com/channel/UCX9OzoPPdIOc2yXu26DsYCQ](https://img.shields.io/youtube/channel/views/UCX9OzoPPdIOc2yXu26DsYCQ?style=social) [посетить](https://www.youtube.com/channel/UCX9OzoPPdIOc2yXu26DsYCQ)
 <br><br>
 # R4S-teapot
 Сцены для управления чайником Redmond через шлюз [ESP32 Ready4Sky (R4S)](https://github.com/alutov/ESP32-R4sGate-for-Redmond)
