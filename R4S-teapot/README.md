@@ -3,7 +3,8 @@
 <br>
 ![https://github.com/Svet98/MajorDoMo-scenes/tree/main/R4S-teapot](https://img.shields.io/badge/%D0%B2%20%D0%B2%D0%B5%D1%87%D0%BD%D0%BE%D0%B9-%D0%B4%D0%BE%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B5-orange) ![https://github.com/Svet98/MajorDoMo-scenes/tree/main/R4S-teapot](https://img.shields.io/badge/Realese-Yes-green) ![https://github.com/Svet98/MajorDoMo-scenes/tree/main/R4S-teapot](https://img.shields.io/badge/ver-1.0.2-blue)
 <br>
-:black_square_button: видео инструкция интеграции в МажорДоМо
+:white_check_mark: видео инструкция интеграции в МажорДоМо
+[![](https://github.com/Svet98/MajorDoMo-scenes/blob/main/R4S-teapot/jpg/yt_logo_rgb_light.png)](https://www.youtube.com/watch?v=qGivkpPkW98)
 <br>
 :white_check_mark: подготавливаем шлюз ESP32 Ready4Sky (R4S)
 [![](https://github.com/Svet98/MajorDoMo-scenes/blob/main/R4S-teapot/jpg/yt_logo_rgb_light.png)](https://www.youtube.com/watch?v=6_Xk5rTD8FI&ab_channel=Svet%D0%BB%D0%B0%D1%8F)
