@@ -5,10 +5,11 @@
 <br><br>
 
 <details>
-<summary><b>PowerPlug/T34 </b> Сцена для уравления WiFi розетками</summary>
+<summary><b>PowerPlug/T34 </b> Сцена для уравления WiFi розетками
 <br>
 
 ✅ Есть видео [![ ](https://github.com/Svet98/MajorDoMo-R4S-teapot/blob/main/jpg/yt_logo_rgb_light.png?raw=true)](https://www.youtube.com/shorts/tZTlQFJJrP4)
+</summary>
 <br>
 
 ![image](https://github.com/Svet98/MajorDoMo-scenes/blob/main/doc/img/vlcsnap-2023-02-15-08h20m16s916.png?raw=true)
