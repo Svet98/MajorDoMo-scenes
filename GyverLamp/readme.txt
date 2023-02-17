@@ -1,0 +1,1 @@
+FireLamp_EmbUI 2.3.0  -  Для версии прошивки FireLamp_EmbUI 2.3.0
