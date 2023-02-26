@@ -1,0 +1,5 @@
+добавить в объекты:
+
+
+status.gyverMQTT
+ThisComputer.GyverMsg  - для сообщения которое будет транслироваться на все GyverLamp
