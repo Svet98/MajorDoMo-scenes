@@ -1,5 +1,88 @@
-добавить в объекты:
+//
+// Вместо п.5 и п.1.1 Импортировать в объекты klass_GyverLamp.txt С ПЕРЕЗАПИСЬЮ
+//
+
+1. Добавить в объекты свойства:
+	- status.gyverMQTT
+	- ThisComputer.GyverMsg  - для сообщения которое будет транслироваться на все GyverLamp.
+ 1.1  Внимание! Объект GyverLamp изменился! Надо добавить свойства:
+	- DayOn 	(авто вкл/выкл по датчику освещенности)
+	- effectName 	(имя эффекта)
+	- mode 		(режим)
+	- msg 		(сообщение для трансляции)
+	- msgALL 	(транслировать / нет, широковещательные сообщения)
+	- nameMQTT 	(MQTT имя)
+	
+
+2. Импортировать сценарии из файла scripts_GyverLamp.json
+	Появится новая категория GyverLamp с пятью сценариями.
+
+3. Импорт элементов на сцену из файла scene_GyverLamp.elements
+
+4. Создать объекы GyverLamp01, GyverLamp02, ...
+   Внимание! Объект GyverLamp изменился! Надо добавить свойства:
+	- В объект SDevices добавлен метод AliveStart с привязкой к свойству alive.
+	- С-во brightness переименовано в bright
+
+5. - В объекте GyverLamp создаем метод msg с привязкой к свойству msg и пишем код:
+	// отправка сообщения на светильник
+	$gyvermsg = $this->getProperty("msg"); // берем сообщение
+	$gyverpub = $this->getProperty("nameMQTT"); // загружаем имя светильника
+	$gyverpub .= "set/msg";  // дописываем путь для отправки по MQTT
+	// инициализируем модуль MQTT для отправки
+	      include_once(DIR_MODULES . 'mqtt/mqtt.class.php');
+	      $mqtt = new mqtt();
+	// отправляем сообщение на светильник по MQTT
+	      $rezult = $mqtt->mqttPublish($gyverpub, $gyvermsg, 0, 0);
+	// отправляем в чат(лог) на указанный терминал сообщение и путь, для информации. если 55 - не отправлять в чат
+	if ($this->getProperty("sayTerm")!=55) {
+	say ($gyverpub.'='.$gyvermsg);
+	}
+
+   - В объект SDevices добавлен метод AliveStart с привязкой к свойству alive.
+   - В объекте GyverLamp переписываем метод AliveStart и добавляем код:
+  // после появления светильников в сети, на них будут переданы основные параметры
+  // если связь исчезла когда они работали
+	if($this->getProperty("alive") == 1 && $this->getProperty("status") == 1) {
+	   $this->setProperty('demo',$this->getProperty('demo'));
+	   $this->setProperty('effect',$this->getProperty('effect'));
+	   $this->setProperty('brightness',$this->getProperty('brightness'));
+	   $this->setProperty('effectSpeed',$this->getProperty('effectSpeed'));
+	   $this->setProperty('scale',$this->getProperty('scale'));
+	}
 
 
-status.gyverMQTT
-ThisComputer.GyverMsg  - для сообщения которое будет транслироваться на все GyverLamp
+6. Привязать поступающие данные по MQTT с ламп с объектами GyverLamp0х
+	Gyver01/embui/pub/online  			 	- alive
+	homeassistant/light/EmbUI-A33DB4/config/~		- name (MQTT имя)
+	Gyver01/embui/pub/effect [Gyver01/embui/set/effect]	- effect
+	Gyver01/embui/pub/demo [Gyver01/embui/set/demo]		- demo
+	Gyver01/embui/pub/bright [Gyver01/embui/set/bright]	- bright
+	Gyver01/embui/pub/speed [Gyver01/embui/set/speed]	- speed
+	Gyver01/embui/pub/on [Gyver01/embui/set/on]		- status
+	Gyver01/embui/pub/mode [Gyver01/embui/set/mode]		- mode
+	Gyver01/embui/pub/scale [Gyver01/embui/set/scale]	- scale
+	Gyver01/embui/pub/eff_config/name			- effectName
+	
+
+
+Графика:
+	Menu/gyver_on.png	zal/change.png			kn/on_001.png
+	Menu/gyver_err.png	zal/scale.png			kn/off_001.png
+	Menu/gyver.png		zal/speed.png			kn/lamp_none.png
+	Menu/diag.png		kitchen/illum_night.png		kn/rnd.png
+	system/reboot.png	system/msg.png			kn/prev.png
+								kn/next.png
+
+
+П.С.
+	Я использую данную сцену для управления от 2-ух светильников в синхронном режиме.
+	Был у меня случай, когда на одном светильнике отходило питание, плохой контакт.
+	Отключение происходило минут через 20 после работы и включение, минут через 5-10,
+	как остынет. Не сразу обратили внимание. Это меня и натолкнуло на идею добавить 
+	"debag" )). Проверка происходит на состояние светильника "в сети или нет". Если 
+	устройство потеряло "сеть" или отключено питание, в основном меню справа от надписи
+	"Светильник не в сети" появится иконка, нажав на которую, в правой части появятся 
+	настройки. Над ними, слева или справа появится "красная лампочка", которая и 
+	показывает какой светильник "отвалился", GyverLamp01  GyverLamp02. Так же в системный
+	чат уходит сообщение.
