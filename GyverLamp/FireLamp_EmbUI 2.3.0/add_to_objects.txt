@@ -4,6 +4,12 @@
 
 1. Импортировать сценарии из файла scripts_GyverLamp.json
 	Появится новая категория GyverLamp с пятью сценариями.
+	GyverLampEffectNext - для перелистывания эффетков, следующий
+	GyverLampEffectPrev - для перелистывания эффетков, предыдущий
+	GyverLampEffectRND - включение рандомного эффекта
+	GyverLampReboot - для перезагрузки светильника
+	GyverLampMSG  - для отправки сообщения ThisComputer.GyverMsg на все лампы у которых
+			включен .msgALL
 
 2. Добавить в объекты свойства:
 	- status.gyverMQTT
